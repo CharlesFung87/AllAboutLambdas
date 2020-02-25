@@ -15,7 +15,8 @@ public class ArrayReferences {
 
 	// Lambda without references
 	StringArray sArrayLambda = (size) -> new String[size];
-
+        
+        // Lambda with references
 	StringArray sArrayLambdaMethodRef = String[]::new;
 
 	// Trades array

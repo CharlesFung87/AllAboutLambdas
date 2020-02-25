@@ -60,6 +60,9 @@ public class Employee {
 	 */
 	public void constructorReferencedLambdas(){
 		// Both have the same constructor reference
+                // NOTE: the actual constructor used is determined by
+                // the method signature in the function interfaces:
+                // EmployeeByName -> create(int, String)
 
 		// Constructor reference invocation for first constructor
 		EmployeeById empLambdaConstRef = Employee::new;
