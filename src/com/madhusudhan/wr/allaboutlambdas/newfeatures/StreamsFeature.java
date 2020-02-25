@@ -8,7 +8,7 @@ import com.madhusudhan.wr.allaboutlambdas.domain.Movie;
 import com.madhusudhan.wr.allaboutlambdas.util.MovieUtil;
 
 /**
- * Example for demontrating streams feature
+ * Example for demonstrating streams feature
  * @author mkonda
  *
  */

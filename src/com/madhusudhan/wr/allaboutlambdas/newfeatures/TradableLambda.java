@@ -1,13 +1,6 @@
 package com.madhusudhan.wr.allaboutlambdas.newfeatures;
 
-import java.util.List;
-import java.util.concurrent.Callable;
-
-import com.madhusudhan.wr.allaboutlambdas.domain.Employee;
-import com.madhusudhan.wr.allaboutlambdas.domain.Manager;
-import com.madhusudhan.wr.allaboutlambdas.domain.Movie;
 import com.madhusudhan.wr.allaboutlambdas.domain.Trade;
-import com.madhusudhan.wr.allaboutlambdas.util.MovieUtil;
 
 /**
  * This class defines few lambda expressions.

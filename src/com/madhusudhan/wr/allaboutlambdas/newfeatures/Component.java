@@ -7,6 +7,7 @@ package com.madhusudhan.wr.allaboutlambdas.newfeatures;
  * @author mkonda
  *
  */
+@FunctionalInterface
 public interface Component {
 	/**
 	 * Get the name of the component

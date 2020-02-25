@@ -20,14 +20,16 @@ public class CapturingLambda {
 
 	private void accessInstanceVariables() {
 		Greeting g = (name) -> {
-			// Accessing an instance variable 
+			// Accessing an instance variable as free variable
 			System.out.println(defaultGreeting + name);
 		};
+                g.sayHello("Peter");
 	}
 
 
 	public static void main(String[] args) {
 		CapturingLambda cl = new CapturingLambda();
+                cl.accessInstanceVariables();
 
 	}
 

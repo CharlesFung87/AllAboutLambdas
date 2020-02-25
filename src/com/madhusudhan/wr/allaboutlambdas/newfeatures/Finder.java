@@ -26,6 +26,9 @@ public class Finder {
 	}
 	
 	public static void main(String[] args) {
-		IFinder finder = (s) -> "result";
+            
+		IFinder finder = (s) -> "result for " + s;
+                
+                System.out.println("finder criteria is " + finder.criteria());
 	}
 }

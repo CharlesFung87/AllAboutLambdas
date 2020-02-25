@@ -21,7 +21,7 @@ public class Streaming {
 	private void findLargeTrades(List<Trade> trades) {
 		trades.stream()
 			.filter(trade -> trade.getQuantity() > ONE_MILLION)
-			.forEach(System.out::println);;
+			.forEach(System.out::println);
 	}
 	/**
 	 * Finding large trades - execution is run in parallel mode

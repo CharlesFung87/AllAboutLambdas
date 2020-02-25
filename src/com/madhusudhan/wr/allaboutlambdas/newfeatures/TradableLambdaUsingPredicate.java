@@ -1,14 +1,7 @@
 package com.madhusudhan.wr.allaboutlambdas.newfeatures;
 
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.function.Predicate;
-
-import com.madhusudhan.wr.allaboutlambdas.domain.Employee;
-import com.madhusudhan.wr.allaboutlambdas.domain.Manager;
-import com.madhusudhan.wr.allaboutlambdas.domain.Movie;
 import com.madhusudhan.wr.allaboutlambdas.domain.Trade;
-import com.madhusudhan.wr.allaboutlambdas.util.MovieUtil;
+import java.util.function.Predicate;
 
 /**
  * This class defines few lambda expressions.
@@ -23,9 +16,10 @@ public class TradableLambdaUsingPredicate {
 	 *
 	 * @param <Trade>
 	 */
-	interface Tradable<Trade>{
-		boolean check(Trade t);
-	}
+         // NOTE: using Predicate<Trade> renders Tradable interface redundant
+//	interface Tradable<Trade>{
+//		boolean check(Trade t);
+//	}
 	
 	/**
 	 * A method that accepts a Tradable (lambda) along with a Trade instance
