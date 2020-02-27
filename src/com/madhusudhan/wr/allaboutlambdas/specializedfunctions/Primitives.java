@@ -1,4 +1,4 @@
-package com.madhusudhan.wr.allaboutlambdas.specialisedfunctions;
+package com.madhusudhan.wr.allaboutlambdas.specializedfunctions;
 
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;

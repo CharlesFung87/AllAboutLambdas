@@ -29,6 +29,12 @@ interface Factory {
     // Additional abstract method
     // uncomment this method to find out that Factory lambda expressions will be broken
     // boolean scrap(int id);
+    
+    // NOTE: legal to define default method
+    default boolean scrap(int id) {return true;}
+    
+    // NOTE: or static method
+    static boolean scrapStatic(int id) {return true;}
 }
 
 public class Interfaces {

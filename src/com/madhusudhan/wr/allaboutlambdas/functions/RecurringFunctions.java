@@ -5,44 +5,51 @@ import java.util.Properties;
 
 import com.madhusudhan.wr.allaboutlambdas.domain.Patient;
 
-
 public class RecurringFunctions {
 
-	// Check if the movies belongs to thriller genre
-	interface Movie{
-	  boolean isThriller(int movieId);
-	}
+    // Check if the movies belongs to thriller genre
+    interface Movie {
 
-	// Get an employee given an id
-	interface Employee{
-	  Employee fetch(int empId);
-	}
+        boolean isThriller(int movieId);
+    }
 
-	// Admit the patient
-	interface Hospital{
-	  void admit(Patient patient);
-	}
+    // Get an employee given an id
+    interface Employee {
 
-	// Supply  the properties required to seed the system
-	interface Seeder{
-	  List<Properties> seed(String system);
-	}
-	
-	// Custom functions
-	
-	// Interface for checking conditionality
-	interface Tester<T>{
-	  boolean test(T t);
-	}
+        Employee fetch(int empId);
+    }
 
-	// Interface for Producing objects
-	interface Producer<T>{
-	  T produce(int id);
-	}
+    // Admit the patient
+    interface Hospital {
 
-	// Interface for consuming elements
-	interface Consumer<T>{
-	  void consume(T t);
-	}
-	
+        void admit(Patient patient);
+    }
+
+    // Supply  the properties required to seed the system
+    interface Seeder {
+
+        List<Properties> seed(String system);
+    }
+
+    // Custom functions
+    // Interface for checking conditionality
+    interface Tester<T> {
+
+        boolean test(T t);
+    }
+
+    // Interface for Producing objects
+    // NOTE: takes an int and returns an instance of T
+    interface Producer<T> {
+        
+        T produce(int id);
+    }
+
+    // Interface for consuming elements
+    // NOTE and returning void
+    interface Consumer<T> {
+
+        void consume(T t);
+    }
+
 }

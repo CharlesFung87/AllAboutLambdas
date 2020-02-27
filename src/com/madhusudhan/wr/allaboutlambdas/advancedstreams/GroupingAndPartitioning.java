@@ -12,81 +12,88 @@ import com.madhusudhan.wr.allaboutlambdas.util.EmployeeUtil;
 
 /**
  * This class demonstrates the usage of groupingBy function
- * 
+ *
  * @author mkonda
  *
  */
 public class GroupingAndPartitioning {
 
-	List<Employee> employees = EmployeeUtil.createDetailedEmployees();
+    List<Employee> employees = EmployeeUtil.createDetailedEmployees();
 
-	/**
-	 * Grouping by department function
-	 */
-	private void groupingByDepartment() {
-		Map<String, List<Employee>> deptEmployees = employees
-			.stream()
-			.collect(groupingBy(e -> e.getDepartment()));
-		
-		System.out.println(deptEmployees);
-	}
+    /**
+     * Grouping by department function
+     */
+    private void groupingByDepartment() {
+        Map<String, List<Employee>> deptEmployees = employees
+                .stream()
+                .collect(groupingBy(e -> e.getDepartment()));
 
-	/**
-	 * Grouping by city
-	 */
-	private void groupingByCity() {
-		Map<String, List<Employee>> cityEmployees = employees
-			.stream()
-			.collect(Collectors.groupingBy(Employee::getCity));
-		System.out.println(cityEmployees);
-	}
-	
-	/**
-	 * Multi-level grouping usage: group employees by department and city
-	 */
-	private void groupingByDeptAndCity() {
-		Map<String, Map<String, List<Employee>>> deptAndCityEmployees =
-				employees.stream()
-		.collect(groupingBy((Employee::getDepartment), groupingBy(Employee::getCity)));
-		System.out.println(deptAndCityEmployees);
-	}
-	
-	private void partitionByExecutives() {
-		Map<Boolean, List<Employee>> empPartition = employees
-				.stream()
-				.collect(Collectors.partitioningBy(Employee::isExecutive));
-	
-		System.out.println(empPartition);
-	}
-	
-	private void partitioningAndGrouping() {
-		Map<Boolean, Map<String, List<Employee>>> execEmployees = employees
-			.stream()
-			.collect(partitioningBy((Employee::isExecutive), groupingBy(Employee::getDepartment)));
-		
-		for(Boolean b: execEmployees.keySet()){
-			System.out.println(b+" --> "+execEmployees.get(b));
-		}
-	}
-	
-	private void multiLevelPartitioning() {
-		Map<Boolean, Map<Boolean, List<Employee>>> execEmployees = employees
-			.stream()
-			.collect(
-				partitioningBy((Employee::isExecutive), 
-				partitioningBy(Employee::isSenior)));
-		
-		for(Boolean b: execEmployees.keySet()){
-			System.out.println(b+":"+execEmployees.get(b));
-		}
+        System.out.println(deptEmployees);
+    }
 
-	}
-	public static void main(String[] args) {
-//		new GroupingAndPartitioning().groupingByDepartment();
-//		new GroupingAndPartitioning().groupingByCity();
-//		new GroupingAndPartitioning().groupingByDeptAndCity();
-//		new GroupingAndPartitioning().partitionByExecutives();
-//		new GroupingAndPartitioning().partitioningAndGrouping();
-		new GroupingAndPartitioning().multiLevelPartitioning();
-	}
+    /**
+     * Grouping by city
+     */
+    private void groupingByCity() {
+        Map<String, List<Employee>> cityEmployees = employees
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getCity));
+        System.out.println(cityEmployees);
+    }
+
+    /**
+     * Multi-level grouping usage: group employees by department and city
+     */
+    private void groupingByDeptAndCity() {
+        Map<String, Map<String, List<Employee>>> deptAndCityEmployees
+                = employees.stream()
+                        .collect(groupingBy((Employee::getDepartment), groupingBy(Employee::getCity)));
+        System.out.println(deptAndCityEmployees);
+    }
+
+    private void partitionByExecutives() {
+        Map<Boolean, List<Employee>> empPartition = employees
+                .stream()
+                .collect(Collectors.partitioningBy(Employee::isExecutive));
+
+        System.out.println(empPartition);
+    }
+
+    private void partitioningAndGrouping() {
+        Map<Boolean, Map<String, List<Employee>>> execEmployees = employees
+                .stream()
+                .collect(partitioningBy((Employee::isExecutive), groupingBy(Employee::getDepartment)));
+
+        for (Boolean b : execEmployees.keySet()) {
+            System.out.println(b + ":" + execEmployees.get(b));
+        }
+    }
+
+    private void multiLevelPartitioning() {
+        Map<Boolean, Map<Boolean, List<Employee>>> execEmployees = employees
+                .stream()
+                .collect(
+                        partitioningBy((Employee::isExecutive),
+                                partitioningBy(Employee::isSenior)));
+
+        for (Boolean b : execEmployees.keySet()) {
+            System.out.println(b + ":" + execEmployees.get(b));
+        }
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println("groupingByDepartment");
+        new GroupingAndPartitioning().groupingByDepartment();
+        System.out.println("groupingByCity");
+        new GroupingAndPartitioning().groupingByCity();
+        System.out.println("groupingByDeptAndCity");
+        new GroupingAndPartitioning().groupingByDeptAndCity();
+        System.out.println("partitionByExecutives");
+        new GroupingAndPartitioning().partitionByExecutives();
+        System.out.println("partitioningAndGrouping");
+        new GroupingAndPartitioning().partitioningAndGrouping();
+        System.out.println("multiLevelPartitioning");
+        new GroupingAndPartitioning().multiLevelPartitioning();
+    }
 }
